@@ -20,23 +20,23 @@ exports.register = async (req, res) => {
   }
 };
 
-// exports.login = async (req, res) => {
-//   try {
-//     const { mobile, password } = req.body;
+exports.login = async (req, res) => {
+  try {
+    const { mobile, password } = req.body;
 
-//     const user = await User.findOne({ mobile });
-//     if (!user) return res.status(404).json({ message: 'User not found' });
+    const user = await User.findOne({ mobile });
+    if (!user) return res.status(404).json({ message: 'User not found' });
 
-//     const match = await bcrypt.compare(password, user.password);
-//     if (!match) return res.status(401).json({ message: 'Incorrect password' });
+    const match = await bcrypt.compare(password, user.password);
+    if (!match) return res.status(401).json({ message: 'Incorrect password' });
 
-//     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '2h' });
+    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '2h' });
 
-//     res.json({
-//       token,
-//       user: { id: user._id, name: user.name, mobile: user.mobile }
-//     });
-//   } catch (err) {
-//     res.status(500).json({ message: err.message });
-//   }
-// };
+    res.json({
+      token,
+      user: { id: user._id, name: user.name, mobile: user.mobile }
+    });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};

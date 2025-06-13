@@ -29,7 +29,7 @@ app.get('/', (req, res) => {
 // });
 
 // ✅ Auth routes
-// app.use('/api/auth', authRoutes);
+app.use('/api/auth', authRoutes);
 
 // ✅ Connect to MongoDB and start server
 mongoose.connect(process.env.MONGO_URI, {

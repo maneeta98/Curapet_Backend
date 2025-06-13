@@ -10,14 +10,14 @@ dotenv.config();
 
 const app = express();
 
-// ✅ Middleware must come before routes
-app.use(cors());
-app.use(express.json()); // Parses incoming JSON requests
+// // ✅ Middleware must come before routes
+// app.use(cors());
+// app.use(express.json()); // Parses incoming JSON requests
 
-// ✅ Test root route
-app.get('/', (req, res) => {
-  res.send('🐾 Cura Pet API is running');
-});
+// // ✅ Test root route
+// app.get('/', (req, res) => {
+//   res.send('🐾 Cura Pet API is running');
+// });
 
 // ✅ Test POST route to check req.body is working
 app.post('/post', (req, res) => {

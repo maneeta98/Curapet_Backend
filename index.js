@@ -19,14 +19,14 @@ app.get('/', (req, res) => {
   res.send('🐾 Cura Pet API is running');
 });
 
-// // ✅ Test POST route to check req.body is working
-// app.post('/post', (req, res) => {
-//   console.log('📥 Received body:', req.body);
-//   res.status(200).json({
-//     success: true,
-//     received: req.body
-//   });
-// });
+// ✅ Test POST route to check req.body is working
+app.post('/post', (req, res) => {
+  console.log('Received body:', req.body);
+  res.status(200).json({
+    success: true,
+    received: req.body
+  });
+});
 
 // ✅ Auth routes
 app.use('/api/auth', authRoutes);

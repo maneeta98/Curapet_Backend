@@ -15,11 +15,11 @@ app.use(cors());
 app.use(express.json()); // Parses incoming JSON requests
 
 // ✅ Test root route
-// app.get('/', (req, res) => {
-//   res.send('🐾 Cura Pet API is running');
-// });
+app.get('/', (req, res) => {
+  res.send('🐾 Cura Pet API is running');
+});
 
-// ✅ Test POST route to check req.body is working
+// // ✅ Test POST route to check req.body is working
 // app.post('/post', (req, res) => {
 //   console.log('📥 Received body:', req.body);
 //   res.status(200).json({

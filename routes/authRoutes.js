@@ -10,8 +10,8 @@ router.post('/register', register);
 router.post('/login', login);
 
 // Optional protected test route
-// router.get('/dashboard', authMiddleware, (req, res) => {
-//   res.json({ message: `Welcome, user ${req.user.id}` });
-// });
+router.get('/dashboard', authMiddleware, (req, res) => {
+  res.json({ message: `Welcome, user ${req.user.id}` });
+});
 
 module.exports = router;

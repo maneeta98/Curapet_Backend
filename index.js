@@ -1,46 +1,204 @@
+// // // // // const express = require("express");
+// // // // // const cors = require("cors");
+// // // // // const mongoose = require("mongoose");
+// // // // // const authRoutes = require("./routes/authRoutes");
+// // // // // const appointmentRoutes = require("./routes/appointmentRoutes");
+// // // // // const mealRoutes = require("./routes/mealRoutes");
+
+// // // // // const app = express();
+
+// // // // // mongoose
+// // // // //   .connect("mongodb://localhost:27017/cura-pet", {
+// // // // //     useNewUrlParser: true,
+// // // // //     useUnifiedTopology: true,
+// // // // //   })
+// // // // //   .then(() => console.log("MongoDB connected"))
+// // // // //   .catch((err) => console.error("MongoDB error:", err));
+
+// // // // // app.use(cors({
+// // // // //   origin: 'http://localhost:5173',
+// // // // //   credentials: true,
+// // // // // }));
+// // // // // app.use(express.json());
+
+// // // // // // Routes
+// // // // // app.use("/api/auth", authRoutes);
+// // // // // app.use("/api/appointments", appointmentRoutes);
+// // // // // app.use("/api/meals", mealRoutes);
+
+// // // // // const PORT = 5050;
+// // // // // app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+// // // // const express = require("express");
+// // // // const cors = require("cors");
+// // // // const mongoose = require("mongoose");
+// // // // const authRoutes = require("./routes/authRoutes");
+// // // // const appointmentRoutes = require("./routes/appointmentRoutes");
+// // // // const mealRoutes = require("./routes/mealRoutes");
+
+// // // // const app = express();
+
+// // // // // MongoDB connection
+// // // // mongoose
+// // // //   .connect("mongodb://localhost:27017/cura-pet")
+// // // //   .then(() => console.log("MongoDB connected"))
+// // // //   .catch((err) => console.error("MongoDB error:", err));
+
+// // // // // Middleware
+// // // // app.use(
+// // // //   cors({
+// // // //     origin: "http://localhost:5173", // frontend URL
+// // // //     credentials: true,
+// // // //   })
+// // // // );
+// // // // app.use(express.json());
+
+// // // // // Health-check endpoint
+// // // // app.get("/api/health", (req, res) => {
+// // // //   res.json({ status: "OK", message: "Cura-Pet backend is running" });
+// // // // });
+
+// // // // // Routes
+// // // // app.use("/api/auth", authRoutes);
+// // // // app.use("/api/appointments", appointmentRoutes);
+// // // // app.use("/api/meals", mealRoutes);
+
+// // // // // 404 Handler for unknown routes
+// // // // app.use((req, res, next) => {
+// // // //   res.status(404).json({ message: "Route not found" });
+// // // // });
+
+// // // // // Error handler
+// // // // app.use((err, req, res, next) => {
+// // // //   console.error("Server error:", err);
+// // // //   res.status(500).json({ message: "Internal server error" });
+// // // // });
+
+// // // // // Start the server
+// // // // const PORT = 5050;
+// // // // app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+
+
+// // // const express = require("express");
+// // // const cors = require("cors");
+// // // const mongoose = require("mongoose");
+// // // const authRoutes = require("./routes/authRoutes");
+// // // const appointmentRoutes = require("./routes/appointmentRoutes");
+// // // const mealRoutes = require("./routes/mealRoutes");
+
+// // // const app = express();
+
+// // // mongoose.connect("mongodb://localhost:27017/cura-pet")
+// // //   .then(() => console.log("MongoDB connected"))
+// // //   .catch(err => console.error("MongoDB error:", err));
+
+// // // app.use(
+// // //   cors({
+// // //     origin: "*", 
+// // //   })
+// // // );
+
+
+// // // // Routes
+// // // app.use("/api/auth", authRoutes);
+// // // app.use("/api/appointments", appointmentRoutes);
+// // // app.use("/api/meals", mealRoutes);
+
+// // // const PORT = 5050;
+// // // app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+
+
+
+
+
+// // const express = require("express");
+// // const cors = require("cors");
+// // const mongoose = require("mongoose");
+// // const authRoutes = require("./routes/authRoutes");
+// // const appointmentRoutes = require("./routes/appointmentRoutes");
+// // const mealRoutes = require("./routes/mealRoutes");
+
+// // const app = express();
+
+// // // MongoDB Connection
+// // mongoose.connect("mongodb://localhost:27017/cura-pet")
+// //   .then(() => console.log("MongoDB connected"))
+// //   .catch(err => console.error("MongoDB error:", err));
+
+// // // CORS Middleware
+// // app.use(
+// //   cors({
+// //     origin: "http://localhost:5175", // match your Vite port
+// //     credentials: true,
+// //   })
+// // );
+
+// // // Body Parser Middleware (IMPORTANT!)
+// // app.use(express.json());
+
+// // // Routes
+// // app.use("/api/auth", authRoutes);
+// // app.use("/api/appointments", appointmentRoutes);
+// // app.use("/api/meals", mealRoutes);
+
+// // // Start Server
+// // const PORT = 5050;
+// // app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+
+// const express = require("express");
+// const cors = require("cors");
+// const mongoose = require("mongoose");
+// const authRoutes = require("./routes/authRoutes");
+// const appointmentRoutes = require("./routes/appointmentRoutes");
+// const mealRoutes = require("./routes/mealRoutes");
+
+// const app = express();
+
+// mongoose
+//   .connect("mongodb://localhost:27017/cura-pet")
+//   .then(() => console.log("MongoDB connected"))
+//   .catch((err) => console.error("MongoDB error:", err));
+
+// // CORS
+// app.use(
+//   cors({
+//     origin: "http://localhost:5175", // update to match your frontend
+//     credentials: true,
+//   })
+// );
+
+// // **IMPORTANT - Must be before your routes**
+// app.use(express.json());
+
+// // Routes
+// app.use("/api/auth", authRoutes);
+// app.use("/api/appointments", appointmentRoutes);
+// app.use("/api/meals", mealRoutes);
+
+// const PORT = 5050;
+// app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+
 // index.js
-
-const express = require('express');
 const mongoose = require('mongoose');
-const cors = require('cors');
-const dotenv = require('dotenv');
-const authRoutes = require('./routes/authRoutes'); // Your auth routes
+const app = require('./app');
+require('dotenv').config();
 
-dotenv.config();
+const PORT = process.env.PORT || 5050;
+const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/cura_pet';
 
-const app = express();
-
-// ✅ Middleware must come before routes
-app.use(cors());
-app.use(express.json()); // Parses incoming JSON requests
-
-// ✅ Test root route
-app.get('/', (req, res) => {
-  res.send('🐾 Cura Pet API is running');
-});
-
-// ✅ Test POST route to check req.body is working
-app.post('/post', (req, res) => {
-  console.log('Received body:', req.body);
-  res.status(200).json({
-    success: true,
-    received: req.body
+mongoose
+  .connect(MONGO_URI)
+  .then(() => {
+    console.log('MongoDB connected');
+    app.listen(PORT, () => {
+      console.log(`Server running on port ${PORT}`);
+    });
+  })
+  .catch(err => {
+    console.error('DB Connection Error:', err);
   });
-});
-
-// ✅ Auth routes
-app.use('/api/auth', authRoutes);
-
-// ✅ Connect to MongoDB and start server
-mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-})
-.then(() => {
-  app.listen(process.env.PORT, () => {
-    console.log(`Server running at http://localhost:${process.env.PORT}`);
-  });
-})
-.catch((err) => {
-  console.error('MongoDB connection failed:', err.message);
-});
+y
